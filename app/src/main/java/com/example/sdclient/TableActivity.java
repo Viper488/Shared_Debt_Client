@@ -3,10 +3,12 @@ package com.example.sdclient;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.sdclient.classes.MeetingDetailsDto;
 import com.example.sdclient.classes.PersonMeetingDto;
 import com.example.sdclient.classes.ProductListDto;
+import com.example.sdclient.classes.TableUserAdapter;
 import com.example.sdclient.ui.fragments.AddProductFragment;
 import com.example.sdclient.ui.fragments.UsersFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -53,6 +55,18 @@ public class TableActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
 
                 if (item.getItemId() == R.id.navigation_home) {
+                    Call<MeetingDetailsDto> call = httpSevice.getMeetingDetails(meetingDetailsDto.getCode());
+                    call.enqueue(new Callback<MeetingDetailsDto>() {
+                                     @Override
+                                     public void onResponse(Call<MeetingDetailsDto> call, Response<MeetingDetailsDto> response) {
+                                         meetingDetailsDto = response.body();
+                                     }
+
+                                     @Override
+                                     public void onFailure(Call<MeetingDetailsDto> call, Throwable t) {
+                                         System.out.println(t.getMessage());
+                                     }
+                                 });
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("TABLE_DATA",meetingDetailsDto);
                     bundle.putInt("ID_MEETING",meetingDetailsDto.getId_meeting());
