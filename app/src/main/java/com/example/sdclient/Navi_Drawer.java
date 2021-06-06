@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sdclient.classes.MeetingDetailsDto;
 import com.example.sdclient.classes.MeetingListDto;
 import com.example.sdclient.ui.fragments.HomeFragment;
 import com.example.sdclient.ui.fragments.SummaryFragment;
@@ -160,26 +161,26 @@ public class Navi_Drawer extends AppCompatActivity implements NavigationView.OnN
                                     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$$$$$$$$$$$$$$$$$$$   " + code);
 
                                     //TODO : KOD jezeli craete bedzie zwracalo code powinno przenosic dalej ale chuj wie
-//                                    intent = new Intent(Navi_Drawer.this, TableActivity.class);
-//
-//                                    Call<MeetingDetailsDto> call2 = httpSevice.getMeetingDetails(code);
-//
-//                                    call2.enqueue(new Callback<MeetingDetailsDto>() {
-//                                        @Override
-//                                        public void onResponse(Call<MeetingDetailsDto> call2, Response<MeetingDetailsDto> response2) {
-//                                            MeetingDetailsDto meetingDetailsDto = response2.body();
-//                                            intent.putExtra("TABLE_DATA",meetingDetailsDto);
-//                                            intent.putExtra("USER_NICK",nick);
-//
-//                                            startActivity(intent);
-//                                        }
-//
-//                                        @Override
-//                                        public void onFailure(Call<MeetingDetailsDto> call2, Throwable t2) {
-//                                            System.err.println(t2.getMessage());
-//
-//                                        }
-//                                    });
+                                    intent = new Intent(Navi_Drawer.this, TableActivity.class);
+
+                                    Call<MeetingDetailsDto> call2 = httpSevice.getMeetingDetails(code);
+
+                                    call2.enqueue(new Callback<MeetingDetailsDto>() {
+                                        @Override
+                                        public void onResponse(Call<MeetingDetailsDto> call2, Response<MeetingDetailsDto> response2) {
+                                            MeetingDetailsDto meetingDetailsDto = response2.body();
+                                            intent.putExtra("TABLE_DATA",meetingDetailsDto);
+                                            intent.putExtra("USER_NICK",nick);
+
+                                            startActivity(intent);
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<MeetingDetailsDto> call2, Throwable t2) {
+                                            System.err.println(t2.getMessage());
+
+                                        }
+                                    });
 
                             }
 
