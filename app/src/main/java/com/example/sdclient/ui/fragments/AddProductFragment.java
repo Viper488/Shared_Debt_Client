@@ -211,7 +211,10 @@ public class AddProductFragment extends Fragment {
         addPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(getContext(), PaymentActivity.class);
+                System.out.println("ADD PAYMENT START");
+                Intent newIntent = new Intent(getActivity(), PaymentActivity.class);
+
+                System.out.println("ADD PAYMENT BEFORE GET");
 
                 Call<PaymentListDto> call = httpSevice.getMeetingsPayments(Integer.toString(id_meeting));
 
@@ -219,20 +222,24 @@ public class AddProductFragment extends Fragment {
                     @Override
                     public void onResponse(Call<PaymentListDto> call, Response<PaymentListDto> response) {
                         if (response.code() == 200) {
-                            PaymentListDto paymentListDto = response.body();
-                            System.out.println(response.body().toString());
-                            System.out.println(" zmienna 2@@#@$@#!$%!@# " + Integer.toString(id_meeting) + " Dane " + Integer.toString(id_person));
-                            intent2.putExtra("PAYMENT_DATA", paymentListDto);
-                            intent2.putExtra("ID_MEETING", Integer.toString(id_meeting));
-                            intent2.putExtra("ID_PERSON", Integer.toString(id_person));
 
-                            startActivity(intent2);
+                            System.out.println("GSON HERE?");
+                            PaymentListDto paymentListDto = response.body();
+                            System.out.println("GSON YES");
+
+                            System.out.println(response.body());
+                            System.out.println(" zmienna 2@@#@$@#!$%!@# " + Integer.toString(id_meeting) + " Dane " + Integer.toString(id_person));
+                            newIntent.putExtra("PAYMENT_DATA", paymentListDto);
+                            newIntent.putExtra("ID_MEETING", Integer.toString(id_meeting));
+                            newIntent.putExtra("ID_PERSON", Integer.toString(id_person));
+
+                            startActivity(newIntent);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<PaymentListDto> call, Throwable t) {
-
+                            System.out.println(t.toString());
                     }
                 });
 
