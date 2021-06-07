@@ -160,7 +160,6 @@ public class Navi_Drawer extends AppCompatActivity implements NavigationView.OnN
                                     String code = response.body();
                                     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$$$$$$$$$$$$$$$$$$$   " + code);
 
-                                    //TODO : KOD jezeli craete bedzie zwracalo code powinno przenosic dalej ale chuj wie
                                     intent = new Intent(Navi_Drawer.this, TableActivity.class);
 
                                     Call<MeetingDetailsDto> call2 = httpSevice.getMeetingDetails(code);
