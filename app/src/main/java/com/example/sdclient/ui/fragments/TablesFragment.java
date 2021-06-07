@@ -24,8 +24,12 @@ import com.example.sdclient.HttpSevice;
 import com.example.sdclient.R;
 import com.example.sdclient.TableActivity;
 import com.example.sdclient.classes.MeetingDetailsDto;
+import com.example.sdclient.classes.MeetingDto;
 import com.example.sdclient.classes.MeetingListDto;
 import com.example.sdclient.classes.TableAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -69,6 +73,7 @@ public class TablesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
         adapter = new TableAdapter(list.getMeetingDtoList());
+
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
