@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="36dp"
-        android:text="Podaj kod z aplikacji"
+        android:text="Enter code from bank app"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

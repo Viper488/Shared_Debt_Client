@@ -27,11 +27,13 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
 
         public TextView textView;
         public TextView textView2;
+        public TextView textView3;
 
         public TableViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             textView =itemView.findViewById(R.id.tableName);
-            textView2= itemView.findViewById(R.id.ownerName);
+            textView2= itemView.findViewById(R.id.tableCode);
+            textView3= itemView.findViewById(R.id.tablePass);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -65,6 +67,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
 
         holder.textView.setText(currentTable.getName());
         holder.textView2.setText(currentTable.getCode());
+        holder.textView3.setText(currentTable.getPassword());
 
     }
 
