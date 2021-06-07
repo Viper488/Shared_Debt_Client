@@ -52,7 +52,7 @@
         android:background="@drawable/backgroundtextfields"
         android:ems="10"
         android:hint="ex 20.20"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/addPriceLabel"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -120,7 +120,7 @@ public class AddProductFragment extends Fragment {
 
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
-                                System.out.println(" id nervy " + id_person);
+                                System.out.println(" id person:  " + id_person);
                                 addProductFun(newProdName.getText().toString(), newProdPrice.getText().toString());
                             }
                         });
