@@ -29,7 +29,7 @@ public interface HttpSevice {
     Call<String> createMeeting(@Query("name") String name , @Query("password") String password);
 
     @POST("sd-server/join_meeting")
-    Call<Void> joinMeeting(@Query("name") String name , @Query("password") String password);
+    Call<Void> joinMeeting(@Query("code") String name , @Query("password") String password);
 
     @GET("sd-server/meeting_details_code")
     Call<MeetingDetailsDto> getMeetingDetails(@Query("code") String code);
